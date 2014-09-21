@@ -1,0 +1,62 @@
+{% include '_header.twig' %}
+
+    <div id="container">
+{{ dump(theme) }}
+	{% if theme.slider %}
+	{% include '_slider.twig' %}
+	{% endif %}
+
+
+
+
+
+    <div style="clear:both"></div>
+    {% setcontent content="entries/latest/3" %} 
+    {% for stuff in content %}
+    
+    <div class="one-third">
+      <h2>{{ stuff.title }}</h2>
+      <p>{{ stuff.teaser }}</p>
+      <p style="text-align:right; margin-right: 15px"><a href="{{ stuff.link }}" class="button_small">Find out more</a></p>
+    </div>
+     {% endfor %}
+    
+    
+        <div style="clear:both"></div>
+        <div class="box_highlight" style="margin-top:40px"><h2 style="text-align:center">{{ theme.slogan }}</h2></div>
+    
+    <div class="one-half">
+    
+    <div class="heading_bg">
+    {% setcontent about="page/about" %}
+    <h2>{{ about.title }}</h2></div>
+    
+        <blockquote>{{ about.teaser }}
+    </blockquote>
+    <p style="text-align:right; margin-right: 16px; margin-bottom: 15px"><a href="{{ about.link }}" class="button" style="font-size: 18px">Find out more</a></p>
+    
+    
+    <div class="heading_bg"><h2>Video</h2></div>
+    
+    <iframe src="http://player.vimeo.com/video/22884674?title=0&amp;byline=0&amp;portrait=0&amp;color=ffffff" width="465" height="262" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+    
+    
+    </div>
+    
+    
+    <div class="one-half last">
+    
+         <div class="heading_bg"><h2>Contact us today!</h2></div>
+
+         {{ simpleform('contact') }}
+    
+    
+    </div>
+
+
+    <div style="clear:both; height: 40px"></div>
+    </div>
+
+    <!-- END container -->
+
+{% include '_footer.twig' %}

@@ -1,0 +1,26 @@
+
+      <div class="sidebar_right">
+     
+      {% setcontent about="pages/about" %}
+      <div class="about"><h3>About</h3>
+      {{ about.teaser }}
+      <a href="{{ about.link }}">Read more...</a>
+      <p></p>
+      </div>
+      <div class="sidebarmenu">
+      <h3>Latest Content</h3>
+      {% setcontent records="entries/latest/6" %}
+      <ul class="sidebar_menu" style="margin:0">
+        {% for record in records %}
+        <li><a href="{{ record.link }}">{{ record.title }}</a></li>
+        {% endfor %}
+      </ul>
+      </div>
+      
+      </div><!-- end sidebar right -->
+      
+      
+   
+      <div style="clear:both; height: 40px"></div>
+      
+      </div><!-- end container -->

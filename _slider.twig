@@ -1,0 +1,28 @@
+ <div id="prod_wrapper">
+      <div id="panes">
+    {% setcontent content = "entries/latest/5" %}
+    {% for stuff in content %}
+    <div>
+    <img src="{{ stuff.image | thumbnail(465,300,"c")}}" alt="demo" />
+    <h2>{{ stuff.title }}</h2>
+        <p>{{ stuff.teaser }}</p>
+    <p style="text-align:right; margin-right: 16px"><a href="{{ stuff.link}}" class="button">More Info</a></p>
+    </div>
+    {% endfor %}
+    </div>
+<!-- END tab panes -->
+<br clear="all" />
+<!-- navigator -->
+
+<div id="prod_nav">
+    <ul>
+    {% for stuff in content %}
+
+      <li><a href="#{{ loop.index }}"> <img src="{{ stuff.image|thumbnail(170,113) }}" width="160" alt="demo" /><strong>{{ stuff.title }}</strong> </a></li>
+    {% endfor %}
+    </ul>
+
+</div><!-- END navigator -->
+
+    <br clear="all" />
+    </div>

@@ -1,0 +1,49 @@
+{% include '_header.twig' %}
+    <div id="container">
+
+    
+    				        {# if used for listing a taxonomy: #}
+        {% if taxonomytype is defined %}
+            <h1>
+                {{ __('Overview for') }}
+                {% if taxonomy.options[slug] is defined %}
+                    {{ taxonomy.options[slug] }}
+                {% else %}
+                    {{ slug }}
+                {% endif %}
+            </h1>
+            {# taxonomies are fetched unordered by design. If we specified an order in config.yml, sort them here: #}
+            {% set records = records|order(app.config.get('general/listing_sort')) %}
+        {% endif %}
+
+        {# This is also the default template for searchresults. If 'search' is defined,
+           we display an appropriate title. The 'records' array contains all of the
+           records matching the current query. If there are no results, the
+           code in the 'else' part of the for-loop is used. #}
+        {% if search is defined %}
+            <h1>
+                {{ __('Search results for <b> %search% </b>.', { '%search%': search|escape }) }}
+            </h1>
+        {% endif %}
+    
+    {#    <h1>Magazine Style</h1> #}
+
+   {% for record in records %}
+    
+    <div class="one-third">
+   <div class="heading_bg"><h2><a href="{{ record.link }}">{{ record.title }}</a></h2></div>
+<img src="{{ record.image | thumbnail(200,60) }}" alt="image description" />
+<ul class="post_meta" style="margin:0">
+    <li class="post_meta_admin"><a href="#">Admin</a></li>
+    <li class="post_meta_date"><a href="#">2012-02-21</a></li>
+    <li class="post_meta_comments"><a href="#">12</a></li>
+</ul>
+<p>{{ record.teaser }}</p>
+</div>
+
+{% endfor %}
+
+    <div style="clear:both; height: 40px"></div>
+
+    </div><!-- close container -->
+{% include '_footer.twig' %}
