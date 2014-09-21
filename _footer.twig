@@ -29,7 +29,7 @@
     
     <div class="one-fourth">
         <h3>Information</h3>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sit amet enim id dui tincidunt vestibulum rhoncus a felis.
+        {% if theme.information %}{{theme.information}}{% endif %}
         
         <div id="social_icons">
         Theme by <a href="http://www.csstemplateheaven.com">CssTemplateHeaven</a><br /> Photos © <a href="http://dieterschneider.net" title="Dieter Schneider Photography">Dieter Schneider</a>
@@ -41,9 +41,9 @@
     
     <div class="one-fourth last">
         <h3>Socialize</h3>
-            <img src="img/icon_fb.png" alt="Facebook">
-            <img src="img/icon_twitter.png" alt="Facebook">
-            <img src="img/icon_in.png" alt="Facebook">
+    	{%if theme.facebook %}<a href="{{theme.facebook}}"><img src="{{paths.theme}}img/icon_fb.png" alt="Facebook"></a>{% endif %}
+        {%if theme.twitter %} <a href="{{theme.twitter}}"><img src="{{paths.theme}}img/icon_twitter.png" alt="Twitter"></a>{% endif %}
+        {% if theme.linkedin %}<a href="{{theme.linkedid}}"><img src="{{paths.theme}}img/icon_in.png" alt="Facebook"></a>{% endif %}
     </div>
 
     <div style="clear:both"></div>

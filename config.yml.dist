@@ -1,2 +1,6 @@
-#slogan: Open Source Solutions - No Proprietary Lock-in
-#slider: true 
+#slider: true
+#slogan: This is where the slogan from the config files goes
+#information: Thsi is just a test to see if the information from the config file prints
+#facebook: http://facebook.com/blabla
+#twitter: http://twitter.com/blabla
+#linkedin: http://linkedin.com/blabla
