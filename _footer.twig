@@ -6,10 +6,11 @@
     <div class="one-fourth">
         <h3>Useful Links</h3>
             <ul class="footer_links">
-                <li><a href="#">Lorem Ipsum</a></li>
-                <li><a href="#">Ellem Ciet</a></li>
-                <li><a href="#">Currivitas</a></li>
-                <li><a href="#">Salim Aritu</a></li>
+                {% if theme.footermenuone is defined %}
+                    {{ menu(theme.footermenuone, '_sub_menu_footer.twig') }}
+                {% else %}
+                    if you define the menu name in footermenuone: in config.yml it will display here
+                {% endif %}
             </ul>
     </div>
     
@@ -18,10 +19,11 @@
     <div class="one-fourth">
         <h3>Terms</h3>
             <ul class="footer_links">
-                <li><a href="#">Lorem Ipsum</a></li>
-                <li><a href="#">Ellem Ciet</a></li>
-                <li><a href="#">Currivitas</a></li>
-                <li><a href="#">Salim Aritu</a></li>
+                {% if theme.footermenutwo is defined %}
+                    {{ menu(theme.footermenutwo, '_sub_menu_footer.twig') }}
+                {% else %}
+                    if you define the menu name in footermenutwo: in config.yml it will display here
+                {% endif %}
             </ul>
     </div>
     
@@ -29,10 +31,10 @@
     
     <div class="one-fourth">
         <h3>Information</h3>
-        {% if theme.information %}{{theme.information}}{% endif %}
-        
+        {% if theme.information %}{{theme.information}}{% else %}If you add text to information: in the config.yml it will display here{% endif %} 
+        <br/><br/>
         <div id="social_icons">
-        Theme by <a href="http://www.csstemplateheaven.com">CssTemplateHeaven</a><br /> Photos © <a href="http://dieterschneider.net" title="Dieter Schneider Photography">Dieter Schneider</a>
+        Theme by <a href="http://www.csstemplateheaven.com">CssTemplateHeaven</a><br /> Remixed by realitygaps
         </div>
         
     </div>
@@ -41,6 +43,7 @@
     
     <div class="one-fourth last">
         <h3>Socialize</h3>
+        {%if not theme.facebook is defined and not theme.twitter is defined and not theme.linkedin is defined %}If you add your social networks to the config.yml they will show here{% endif %}
     	{%if theme.facebook %}<a href="{{theme.facebook}}"><img src="{{paths.theme}}img/icon_fb.png" alt="Facebook"></a>{% endif %}
         {%if theme.twitter %} <a href="{{theme.twitter}}"><img src="{{paths.theme}}img/icon_twitter.png" alt="Twitter"></a>{% endif %}
         {% if theme.linkedin %}<a href="{{theme.linkedid}}"><img src="{{paths.theme}}img/icon_in.png" alt="Facebook"></a>{% endif %}

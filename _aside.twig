@@ -2,11 +2,18 @@
       <div class="sidebar_right">
      
       {% setcontent about="pages/about" %}
+    {% if about.title is defined %}
       <div class="about"><h3>About</h3>
       {{ about.teaser }}
       <a href="{{ about.link }}">Read more...</a>
       <p></p>
       </div>
+    {% else %}
+      <div class="about"><h3>{{  __('Alas, no about!') }}</h3>
+        {{ __("If there was a Page with 'about' for a slug, it would've been shown here. But there isn't one, so that's why you're seeing this placeholder.") }}
+      </div>
+      <p></p>
+    {% endif %}
       <div class="sidebarmenu">
       <h3>Latest Content</h3>
       {% setcontent records="entries/latest/6" %}
