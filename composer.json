@@ -1,0 +1,16 @@
+{
+  "name": "realitygaps/bangalore",
+    "description": "",
+    "type": "bolt-theme",
+    "keywords": ["theme"],
+    "require": {
+        "bolt/bolt": ">=2.0.0,<3.0.0"
+    },
+    "license": "Unknown",
+    "authors": [
+        {
+            "name": "realitygaps",
+            "email": "bolt@gapsinreality.com"
+        }
+    ]
+}
