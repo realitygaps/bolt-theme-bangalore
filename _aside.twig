@@ -1,5 +1,7 @@
 
       <div class="sidebar_right">
+
+      {{ widgets('aside_top') }}
      
       {% setcontent about="pages/about" %}
     {% if about.title is defined %}
@@ -25,8 +27,8 @@
       </div>
       
       </div><!-- end sidebar right -->
-      
-      
+
+      {{ widgets('aside_bottom') }}
    
       <div style="clear:both; height: 40px"></div>
       
